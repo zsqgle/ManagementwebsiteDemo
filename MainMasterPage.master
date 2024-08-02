@@ -12,7 +12,7 @@
             width:100%;
         }
         .heads {
-            background:url(/Files/headBack.png) center top no-repeat;
+            background:url(headBack.png) center top no-repeat;
             background-size: 100% 100%!important;
             height:165px;
             width:100%;
@@ -234,13 +234,13 @@
                 <div class="leftElems">
                     <div class="iconElems">
                         <a class="webIcon-area" href="http://cxxy.seu.edu.cn">
-                            <img class="webIcon" src="/Files/WebIcon.png" />
+                            <img class="webIcon" src="WebIcon.png" />
                         </a>
                         <h1 class="name">管理系统</h1>
                     </div>
                     <div class="mode">
                         <a class="menu-area" href="http://cxxy.seu.edu.cn">
-                            <img class="menu-icon" src="/Files/Menu.png" alt="菜单" />
+                            <img class="menu-icon" src="Menu.png" alt="菜单" />
                         </a>
                         <div id="time"></div>
                     </div>
@@ -256,10 +256,10 @@
                     </div>
                     <div class="user">
                         <a class="hon-area" href="http://cxxy.seu.edu.cn">
-                            <img class="hon-icon" src="/Files/honor.png" />
+                            <img class="hon-icon" src="honor.png" />
                         </a>
                         <a class="user-area" href="http://cxxy.seu.edu.cn">
-                            <img class="user-icon" src="/Files/user.png" alt="登录" />
+                            <img class="user-icon" src="user.png" alt="登录" />
                         </a>
                     </div>
 	            </div>
