@@ -1,0 +1,297 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainMasterPage.master.cs" Inherits="Masters_MainMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>管理系统</title>
+    <style type="text/css">
+        .heads-area {
+            position:fixed;
+            width:100%;
+        }
+        .heads {
+            background:url(/Files/headBack.png) center top no-repeat;
+            background-size: 100% 100%!important;
+            height:165px;
+            width:100%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .leftElems {
+            float:left;
+            width:630px;
+        }
+        .iconElems {
+            width:270px;
+            float:left;
+        }
+        .name {
+            float:right;
+            margin:45px 0 0 10px;
+            font-family: 微软雅黑;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #FFFFFF
+        }
+        .mode {
+            float:right;
+            width:360px;
+        }
+        .menu-area {
+            float:left;
+            margin: 45px 5px 5px 10px;
+            width:50px;
+            height:50px;
+            padding:4px 0 0 5.5px;
+            background-color:seagreen;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        }
+        .menu-icon {
+            margin:auto;
+            width:40px;
+            height:40px;
+        }
+        .webIcon-area {
+            margin: 29px 0 0 35px;
+            float: left;
+            height: 80px;
+        }
+        .webIcon {
+            height:80px;
+            width:80px;
+        }
+
+        #time {
+            float:right;
+            font-size:16px;
+            color:white;
+            margin:58px 10px 0 0;
+        }
+
+        .rightElems {
+            width:500px;
+            float:right;
+        }
+        .container {
+            position: relative;
+            margin:45px 0 0 0;
+            float:left;
+            width: 300px;
+            height: 60px;
+        }
+        .container .search {
+            float:right;
+            position:sticky;
+            right: 0;
+            float:right;
+            width: 50px;
+            height: 50px;
+            background-color:seagreen;
+            border-radius: 50%;
+            transition: all 1s;
+            z-index: 4;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        }
+        .container .search:hover {
+            cursor: pointer;
+        }
+        .container .search::before {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: 21px;
+            right: 0;
+            bottom: 0;
+            left: 22px;
+            width: 13px;
+            height: 3px;
+            background: white;
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        .container .search::after {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: -5px;
+            right: 0;
+            bottom: 0;
+            left: -5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid white;
+            transition: all 0.5s;
+        }
+        .container input {
+            font-family: "Inconsolata", monospace;
+            position: absolute;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            background-color:seagreen;
+            color: white;
+            text-shadow: 0 0 10px seagreen;
+            padding: 0 80px 0 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px 0 seagreen, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+            transition: all 1s;
+            opacity: 0;
+            z-index: 5;
+            font-weight: bolder;
+            letter-spacing: 0.1em;
+        }
+        .container input:hover {
+            cursor: pointer;
+        }
+        .container input:focus {
+            width: 300px;
+            opacity: 1;
+            cursor: text;
+        }
+        .container input:focus ~ .search {
+            right: -250px;
+            background: #006600;
+            z-index: 6;
+        }
+        .container input:focus ~ .search::before {
+            top: 0;
+            left: 0;
+            width: 25px;
+        }
+        .container input:focus ~ .search::after {
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            border: none;
+            background: white;
+            border-radius: 0%;
+            transform: rotate(-45deg);
+        }
+        .container input::placeholder {
+            color: white;
+            opacity: 0.5;
+            font-weight: bolder;
+        }
+
+        .user {
+            margin: 40.5px 0 0 0;
+            float:right;
+            width:160px;
+        }
+        .hon-area {
+            float:left;
+            margin:4.5px 10px 5px 5px;
+            width:50px;
+            height:50px;
+            padding:4px 0 0 5.5px;
+            background-color:seagreen;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        }
+        .hon-icon {
+            margin:auto;
+            width:40px;
+            height:40px;
+        }
+        .user-area {
+            float:right;
+            margin:4.5px 30px 5px 5px;
+            width:50px;
+            height:50px;
+            padding:4px 0 0 5.5px;
+            background-color:seagreen;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        }
+        .user-icon {
+            margin:auto;
+            width:40px;
+            height:40px;
+        }
+        
+        .body {
+            /*background-color:dimgray;*/
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="body">
+    <form id="form1" runat="server">
+        <div class="heads-area">
+            <div class="heads">
+                <div class="leftElems">
+                    <div class="iconElems">
+                        <a class="webIcon-area" href="http://cxxy.seu.edu.cn">
+                            <img class="webIcon" src="/Files/WebIcon.png" />
+                        </a>
+                        <h1 class="name">管理系统</h1>
+                    </div>
+                    <div class="mode">
+                        <a class="menu-area" href="http://cxxy.seu.edu.cn">
+                            <img class="menu-icon" src="/Files/Menu.png" alt="菜单" />
+                        </a>
+                        <div id="time"></div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="rightElems">
+                    <div class="container">
+		                <input type="text" id="searchInput" onkeypress="if (event.keyCode == 13) showContent()" placeholder="搜索">
+		                <div class="search">
+		                </div>
+                    </div>
+                    <div class="user">
+                        <a class="hon-area" href="http://cxxy.seu.edu.cn">
+                            <img class="hon-icon" src="/Files/honor.png" />
+                        </a>
+                        <a class="user-area" href="http://cxxy.seu.edu.cn">
+                            <img class="user-icon" src="/Files/user.png" alt="登录" />
+                        </a>
+                    </div>
+	            </div>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script type="text/javascript">
+        function showContent() {
+            var inputValue = document.getElementById("searchInput").value;
+            alert(inputValue);
+        }
+
+        function updateTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1; // 月份从 0 开始，所以要加 1
+            var day = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var dayOfWeek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"][now.getDay()];
+
+            var timeString = year + "年" + month + "月" + day + "日 " + hours + "时" + minutes + "分" + seconds + "秒 " + dayOfWeek;
+            document.getElementById("time").innerHTML = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
